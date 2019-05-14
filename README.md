@@ -8,5 +8,5 @@
 
 **Food.js**
 * class for food object
---
+---
 You can learn more about the game on [this](https://en.wikipedia.org/wiki/Snake_(video_game_genre)) link.

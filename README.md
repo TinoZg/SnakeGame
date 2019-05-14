@@ -1,3 +1,3 @@
 # Snake game in JavaScript using HTML5 Canvas
-**Snake.js**
+**Snake.js**  
 ---class for Snake object

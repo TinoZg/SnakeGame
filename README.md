@@ -1,4 +1,4 @@
-# Snake game in JavaScript using HTML5 Canvas
+## Snake game in JavaScript using HTML5 Canvas
 
 **Animation.js**
 * General code for the game
@@ -8,3 +8,5 @@
 
 **Food.js**
 * class for food object
+---
+You can learn more about the game on [this](https://en.wikipedia.org/wiki/Snake_(video_game_genre)) link.

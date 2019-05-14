@@ -1,6 +1,6 @@
 ## Snake game in JavaScript using HTML5 Canvas
 
-**Animation.js**
+**Game.js**
 * General code for the game
 
 **Snake.js**  

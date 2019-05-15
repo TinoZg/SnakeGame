@@ -7,7 +7,7 @@ class Snake {
 
   show() {
     ctx.fillStyle = 'rgb(255,255,255)';
-	  ctx.fillRect(Math.floor(this.x / 10) * 10, Math.floor(this.y / 10) * 10, this.size, this.size);
+    ctx.fillRect(Math.floor(this.x / 10) * 10, Math.floor(this.y / 10) * 10, this.size, this.size);
   }
 
 

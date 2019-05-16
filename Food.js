@@ -1,7 +1,7 @@
 class Food {
     constructor() {
-        this.x = 300;
-        this.y = 300;
+        this.x = 100;
+        this.y = 100;
         this.size = canvas.width / 60;
     }
     show() {

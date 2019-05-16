@@ -4,11 +4,17 @@ let xSpeed = 0; //speed in horizontal direction
 let ySpeed = 0; //speed in vertical direction
 let snake;
 let food;
+const speed = 0.2;
+const gridSize = 10;
 
 function setup() {
   snake = new Snake();
   food = new Food();
   requestAnimationFrame(draw);
+}
+
+function snapToGrid(x){
+  return Math.round(x / 10) * 10;
 }
 
 
@@ -22,8 +28,8 @@ function draw() {
   food.show();
   if (snake.eats(food)) {
     //snake.body.push();
-    food.x = floor(random(0, 40));
-    food.y = floor(random(0, 40));
+    food.x = Grid.snapToGrid(Math.random() * (canvas.width - gridSize));
+    food.y = Grid.snapToGrid(Math.random() * (canvas.height - gridSize));
    }
   //continue animation
   requestAnimationFrame(draw); 
@@ -35,26 +41,26 @@ setup();
 document.addEventListener('keydown', (event) => {
   if (event.keyCode === 37) {
     //console.log("LEFT");
-    xSpeed = -0.2;
+    xSpeed = -speed;
     ySpeed = 0;
   }
 
   if (event.keyCode === 38) {
     //console.log("UP");
     xSpeed = 0;
-    ySpeed = -0.2;
+    ySpeed = -speed;
   }
 
   if (event.keyCode === 39) {
     //console.log("RIGHT");
-    xSpeed = 0.2;
+    xSpeed = speed;
     ySpeed = 0;
   }
 
   if (event.keyCode === 40) {
     //console.log("DOWN");
     xSpeed = 0;
-    ySpeed = 0.2;
+    ySpeed = speed;
   }
   //console.log(event);
 });

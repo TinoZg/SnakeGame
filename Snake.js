@@ -28,7 +28,9 @@ class Snake {
 
   check() {
     if (this.body[0].x > canvas.width - this.size || this.body[0].x < 0 || this.body[0].y > canvas.height - this.body[0].size || this.body[0].y < 0) {
-      //console.log("GAMEOVER");
+      return true;      
+    } else {
+      return false;
     }
   }
 

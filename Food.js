@@ -6,7 +6,7 @@ class Food {
     }
     show() {
         ctx.fillStyle = 'rgb(0,255,255)';
-	    ctx.fillRect(this.x, this.y, this.size, this.size);
+	    ctx.fillRect(this.x+1, this.y+1, this.size-1, this.size-1);
     }    
 
 

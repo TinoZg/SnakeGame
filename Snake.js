@@ -5,17 +5,17 @@ class Snake {
   }
 
   getX(i = 0) {
-    return this.body[i].getX();
+    return this.body[Math.min(i, this.body.length-1)].getX();
   }
 
   getY(i = 0) {
-    return this.body[i].getY();
+    return this.body[Math.min(i, this.body.length-1)].getY();
   }
 
   show() {
     ctx.fillStyle = 'rgb(255,255,255)';
     for (let i = 0; i < this.body.length; i++){
-      ctx.fillRect(this.getX(i), this.getY(i), this.size, this.size);
+      ctx.fillRect(this.getX(i)+1, this.getY(i)+1, this.size-1, this.size-1);
     }
   }
 

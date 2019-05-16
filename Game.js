@@ -4,12 +4,16 @@ let xSpeed = 0; //speed in horizontal direction
 let ySpeed = 0; //speed in vertical direction
 let snake;
 let food;
-const speed = 0.2;
+const speed = 1;
 const gridSize = 10;
+const moveFreq = 10/1000;
+let timer = 1 / moveFreq;
+let lastFrameTime = new Date();
 
 function setup() {
   snake = new Snake();
   food = new Food();
+  lastFrameTime = Date.now();
   requestAnimationFrame(draw);
 }
 
@@ -23,11 +27,15 @@ function draw() {
   ctx.fillStyle = 'rgb(0, 0, 0)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   snake.show();
-  snake.move(xSpeed, ySpeed);
+  timer -= (Date.now() - lastFrameTime);
+  lastFrameTime = Date.now();
+  if(timer <= 0) {
+    snake.move(xSpeed, ySpeed);
+    timer = 1 / moveFreq;
+  }
   snake.check();
   food.show();
   if (snake.eats(food)) {
-    //snake.body.push();
     food.x = Grid.snapToGrid(Math.random() * (canvas.width - gridSize));
     food.y = Grid.snapToGrid(Math.random() * (canvas.height - gridSize));
    }

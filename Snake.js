@@ -1,26 +1,28 @@
 class Snake {
   constructor() {
     this.size = canvas.width / 60;
-    this.body = [new Position()];
+    this.body = [new Position()]; 
   }
 
-  getX() {
-    return this.body[0].getX();
+  getX(i = 0) {
+    return this.body[i].getX();
   }
 
-  getY() {
-    return this.body[0].getY();
+  getY(i = 0) {
+    return this.body[i].getY();
   }
 
   show() {
     ctx.fillStyle = 'rgb(255,255,255)';
-    ctx.fillRect(this.getX(), this.getY(), this.size, this.size);
-    console.log(`${this.getX()}`, `${this.getY()}`);
+    for (let i = 0; i < this.body.length; i++){
+      ctx.fillRect(this.getX(i), this.getY(i), this.size, this.size);
+    }
   }
 
 
   move(xSpeed, ySpeed) {
     this.body.unshift(new Position(this.body[0].x + xSpeed * this.size, this.body[0].y + ySpeed * this.size));
+    this.tail = this.body[this.body.length - 1];
     this.body.pop();
   }
 
@@ -32,7 +34,8 @@ class Snake {
 
   eats(other){
     if(this.getX() === other.x && this.getY() === other.y) {
-    //console.log("HIT");
+    this.body.push(this.tail);
+    console.log(this.body,this.tail);
     return true;  
     }
   }

@@ -34,6 +34,16 @@ class Snake {
     }
   }
 
+  //check if snake hits itself
+  //ovo ne radi dobro
+  hit() {
+    for(let i = 1; i < this.body.length - 1; i++) {
+      if(this.body[0].x === this.body[i].x) {
+        return true;  
+      }
+    } return false;
+  }
+  //return whether snake eats food or not
   eats(other){
     if(this.getX() === other.x && this.getY() === other.y) {
     this.body.push(this.tail);

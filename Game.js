@@ -4,7 +4,6 @@ const restartButton = document.getElementById('restart');
 let xSpeed = 0; //speed in horizontal direction
 let ySpeed = 0; //speed in vertical direction
 let snake;
-let gameOver = false; //variable to keep track of state of the game
 let food;
 const speed = 1;
 const gridSize = 10; //size of the grid snake moves on
@@ -37,19 +36,19 @@ function draw() {
     snake.move(xSpeed, ySpeed);
     timer = 1 / moveFreq;
   }
-  gameOver = snake.check();
+  snake.check();
   food.show();
   if (snake.eats(food)) {
     food.x = Grid.snapToGrid(Math.random() * (canvas.width - gridSize));
     food.y = Grid.snapToGrid(Math.random() * (canvas.height - gridSize));
    }
-  if(!gameOver) {
+  if(!snake.check() && !snake.hit()) {
   requestAnimationFrame(draw);
   } else {
       ctx.font = "30px Comic Sans MS";
       ctx.fillStyle = "red";
       ctx.textAlign = "center";
-      ctx.fillText("game over loser", canvas.width/2, canvas.height/2); 
+      ctx.fillText("game over", canvas.width/2, canvas.height/2); 
   }
  
 }
@@ -86,8 +85,6 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.getElementById("restart").addEventListener("click", function(){
-  this.innerHTML = "Hello World";
-  gameOver = false;
   xSpeed = 0;
   ySpeed = 0;
   snake = new Snake();

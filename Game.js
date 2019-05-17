@@ -1,13 +1,14 @@
 const canvas = document.getElementById('canvas_');
 const ctx = canvas.getContext('2d');
+const restartButton = document.getElementById('restart');
 let xSpeed = 0; //speed in horizontal direction
 let ySpeed = 0; //speed in vertical direction
 let snake;
-let gameOver = false;
+let gameOver = false; //variable to keep track of state of the game
 let food;
 const speed = 1;
-const gridSize = 10;
-const moveFreq = 10/1000;
+const gridSize = 10; //size of the grid snake moves on
+const moveFreq = 10/1000; 
 let timer = 1 / moveFreq;
 let lastFrameTime = new Date();
 
@@ -17,11 +18,12 @@ function setup() {
   lastFrameTime = Date.now();
   requestAnimationFrame(draw);
 }
-
+/*
+//return location on the grid
 function snapToGrid(x){
   return Math.round(x / 10) * 10;
 }
-
+*/
 
 function draw() {
   //set background to black
@@ -29,6 +31,7 @@ function draw() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   snake.show();
   timer -= (Date.now() - lastFrameTime);
+  //slowing down snake speed
   lastFrameTime = Date.now();
   if(timer <= 0) {
     snake.move(xSpeed, ySpeed);
@@ -81,3 +84,12 @@ document.addEventListener('keydown', (event) => {
   }
   //console.log(event);
 });
+
+document.getElementById("restart").addEventListener("click", function(){
+  this.innerHTML = "Hello World";
+  gameOver = false;
+  xSpeed = 0;
+  ySpeed = 0;
+  snake = new Snake();
+  requestAnimationFrame(draw);
+}); 

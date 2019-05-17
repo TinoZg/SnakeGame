@@ -8,6 +8,13 @@
 
 **Food.js**
 * class for Food object
+
+**Grid.js**
+* static class to return location on the grid
+
+**Position.js**
+* position class for Snake Object
+
 ---
 You can learn more about the game on [this](https://en.wikipedia.org/wiki/Snake_(video_game_genre)) link.
 

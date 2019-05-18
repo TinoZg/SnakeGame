@@ -27,7 +27,7 @@ class Snake {
   }
   //check if snake is on the grid
   check() {
-    if (this.body[0].x > canvas.width - this.size || this.body[0].x < 0 || this.body[0].y > canvas.height - this.body[0].size || this.body[0].y < 0) {
+    if (this.body[0].x > canvas.width - this.size || this.body[0].x < 0 || this.body[0].y > canvas.height - this.size || this.body[0].y < 0) {
       return true;      
     } else {
       return false;
@@ -37,8 +37,8 @@ class Snake {
   //check if snake hits itself
   //ovo ne radi dobro
   hit() {
-    for(let i = 1; i < this.body.length - 1; i++) {
-      if(this.body[0].x === this.body[i].x) {
+    for(let i = 1; i < this.body.length; i++) {
+      if((this.body[0].x === this.body[i].x) && (this.body[0].y === this.body[i].y)) {
         return true;  
       }
     } return false;

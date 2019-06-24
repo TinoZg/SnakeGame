@@ -21,4 +21,5 @@ You can learn more about the game on [this](https://en.wikipedia.org/wiki/Snake_
 You can try playing the game [here](https://tinozg.github.io/SnakeGame/index.html).
 
 ---
-Bug with backwards turning not resolved.
+### ISSUES
+Backwards turning not resolved.
